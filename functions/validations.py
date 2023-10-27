@@ -1,5 +1,5 @@
-from inputs import nota, retry
-from errors import invalid_awnser, invalid_type
+from functions.inputs import nota, retry
+from functions.errors import invalid_awnser, invalid_type
 
 def valida_nota(nota:str):
   '''
@@ -9,6 +9,8 @@ def valida_nota(nota:str):
   if 0 <= float(nota) <= 10:
     return True
 
+
+
 def valida_resposta(resposta:str):
   '''
   Função que verifica se a nota informada pelo usuário pode ser transformado em int
@@ -16,6 +18,8 @@ def valida_resposta(resposta:str):
   '''
   if int(resposta) == 1 or int(resposta) == 2:
     return True
+
+
 
 def executa_resposta(grupo:str, numero:int=None):
   '''
@@ -31,8 +35,10 @@ def executa_resposta(grupo:str, numero:int=None):
             return float(valor)
     except TypeError as e:
       invalid_type(e)
-    except:
-       invalid_awnser(e)
+    else:
+       invalid_awnser()
+
+
 
 def refazer():
   '''
@@ -45,8 +51,8 @@ def refazer():
     try:
       match retry():
         case "S":
-          return False
-        case "N":
           return True
+        case "N":
+          return False
     except TypeError as e:
         invalid_awnser(e)

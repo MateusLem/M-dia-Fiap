@@ -1,8 +1,7 @@
-from errors import invalid_awnser
-from medias import media_semestral, media_anual
-from validations import valida_resposta, refazer
-from inputs import menu_selecao_tipo
-
+from functions.errors import invalid_awnser
+from functions.medias import media_semestral, media_anual
+from functions.validations import valida_resposta, refazer
+from functions.inputs import menu_selecao_tipo
 
 def menu():
   while True:
@@ -20,8 +19,8 @@ def menu():
       invalid_awnser(e)
 
 def main():
-  verify = None
+  verify = True
 
-  while verify != "Y":
+  while verify:
     menu()
     verify = refazer()

@@ -1,4 +1,4 @@
-from validations import executa_resposta
+from functions.validations import executa_resposta
 
 def gera_checkpoint():
   '''
